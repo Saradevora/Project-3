@@ -2,8 +2,9 @@ package es.ulpgc.hpi.p3.alerts;
 
 import java.util.Scanner;
 
-public class Main {
 
+
+public class Main {
     public static void main(String[] args) {
 
         Monitor monitor = new Monitor();
@@ -13,13 +14,13 @@ public class Main {
 
         String command;
 
+        
         do {
             System.out.print("\nComando > ");
             command = scanner.nextLine();
             String[] parts = command.split(" ");
 
             switch (parts[0]) {
-
                 case "add-sensor":
                     if (parts.length < 3) {
                         System.out.println("Uso: add-sensor <nombre> <tipo>");
@@ -28,10 +29,11 @@ public class Main {
                         System.out.println("Sensor añadido.");
                     }
                     break;
-
+                    
                 case "add-alert":
                     if (parts.length < 4) {
                         System.out.println("Uso: add-alert <sensorId> <descripcion> <severidad>");
+
                     } else {
                         int sensorId = Integer.parseInt(parts[1]);
                         monitor.addAlert(sensorId, parts[2], parts[3]);
@@ -54,7 +56,10 @@ public class Main {
                 default:
                     System.out.println("Comando no reconocido.");
             }
+            
 
         } while (!command.equals("exit"));
+        
     }
+    
 }

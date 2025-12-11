@@ -1,8 +1,8 @@
+// Command-line interface for the Natural Disaster Early Warning System
+
 package es.ulpgc.hpi.p3.alerts;
 
 import java.util.Scanner;
-
-
 
 public class Main {
     public static void main(String[] args) {
@@ -12,32 +12,30 @@ public class Main {
 
         System.out.println("=== Natural Disaster Early Warning System ===");
 
-        String command;
+        String commandInput;
 
-        
         do {
-            System.out.print("\nComando > ");
-            command = scanner.nextLine();
-            String[] parts = command.split(" ");
+            System.out.print("\nCommand > ");
+            commandInput = scanner.nextLine();
+            String[] parts = commandInput.split(" ");
 
             switch (parts[0]) {
                 case "add-sensor":
                     if (parts.length < 3) {
-                        System.out.println("Uso: add-sensor <nombre> <tipo>");
+                        System.out.println("Uso: add-sensor <name> <type>");
                     } else {
                         monitor.addSensor(parts[1], parts[2]);
-                        System.out.println("Sensor añadido.");
+                        System.out.println("Added Sensor.");
                     }
                     break;
-                    
+
                 case "add-alert":
                     if (parts.length < 4) {
-                        System.out.println("Uso: add-alert <sensorId> <descripcion> <severidad>");
-
+                        System.out.println("Use: add-alert <sensorId> <description> <severity>");
                     } else {
                         int sensorId = Integer.parseInt(parts[1]);
                         monitor.addAlert(sensorId, parts[2], parts[3]);
-                        System.out.println("Alerta creada.");
+                        System.out.println("Alert created.");
                     }
                     break;
 
@@ -50,16 +48,15 @@ public class Main {
                     break;
 
                 case "exit":
-                    System.out.println("Cerrando sistema...");
+                    System.out.println("Closing system...");
                     break;
 
                 default:
-                    System.out.println("Comando no reconocido.");
+                    System.out.println("Command not recognised.");
             }
-            
 
-        } while (!command.equals("exit"));
-        
+        } while (!commandInput.equals("EXIT"));
+
+        scanner.close();
     }
-    
 }

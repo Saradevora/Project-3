@@ -55,7 +55,7 @@ public class Main {
                     System.out.println("Command not recognised.");
             }
 
-        } while (!commandInput.equals("EXIT"));
+        } while (!commandInput.equals("exit"));
 
         scanner.close();
     }

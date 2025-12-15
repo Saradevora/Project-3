@@ -56,9 +56,5 @@ public class Main {
             }
 
         } while (!commandInput.equals("exit"));
-
-        scanner.close();
     }
-
-    System.out.println("Alerta finalizada");
 }

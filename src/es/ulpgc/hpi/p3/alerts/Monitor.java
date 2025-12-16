@@ -19,7 +19,7 @@ public class Monitor {
                 .orElse(null);
 
         if (s == null) {
-            System.out.println("No existe un sensor con ID: " + sensorId);
+            System.out.println("The sensor ID does not exist: " + sensorId);
             return;
         }
 
